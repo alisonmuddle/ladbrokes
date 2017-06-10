@@ -37,7 +37,7 @@ class race {
 
 	function getNext5() {
 		$list = array();
-		$sql = sprintf("select *, timediff(closing_time, now()) as countdown_time from race where closing_time >= now() order by closing_time asc limit 5");
+		$sql = sprintf("select * from race where closing_time >= now() order by closing_time asc limit 5");
 		$result = mysql_query($sql) or error_log('Error: ' . mysql_error() .' sql = ' . $sql);
 		if (mysql_num_rows($result) > 0) {
 			while ($row = mysql_fetch_array($result)) {
